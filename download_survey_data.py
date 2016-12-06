@@ -7,6 +7,10 @@ Create a new project in the Google Developer console,
 enable the API for Google Sheets, and create/download
 new service account credentials.
 
+Go to the Google Sheet you want to access, and add
+as a collaborator the email address associated with the
+service account credentials. (It's weird and generated.)
+
 """
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
