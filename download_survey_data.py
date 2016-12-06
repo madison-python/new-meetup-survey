@@ -8,16 +8,25 @@ enable the API for Google Sheets, and create/download
 new service account credentials.
 
 """
+from os import path
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 
+service_account_creds = 'madpy-service-account-key.json'
+assert path.exists(service_account_creds), \
+       'creds file "%s" not found' % service_account_creds
+
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    'madpy-service-account-key.json',
-    scopes = 'https://spreadsheets.google.com/feeds',
+    service_account_creds, scopes = 'https://spreadsheets.google.com/feeds',
 )
 
 gc = gspread.authorize(credentials)
-ws = gc.open('MadPy (Responses)').sheet1
+
+title = 'MadPy (Responses)'
+try:
+    ws = gc.open(title).sheet1
+except gspread.SpreadsheetNotFound:
+    print('spreadsheet %s not found, is it shared with the creds email?' % title)
 
 open('madpy-survey-responses.csv', 'wb').write(ws.export())
