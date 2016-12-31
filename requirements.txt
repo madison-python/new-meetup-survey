@@ -1,2 +1,4 @@
 gspread==0.4.1
 oauth2client==4.0.0
+pandas
+lxml

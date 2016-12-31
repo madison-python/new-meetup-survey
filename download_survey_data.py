@@ -1,19 +1,8 @@
 #!/usr/bin/env python
-"""Download MadPy survey responses as a csv.
-
-Google authentication steps:
-
-Create a new project in the Google Developer console,
-enable the API for Google Sheets, and create/download
-new service account credentials.
-
-Go to the Google Sheet you want to access, and add
-as a collaborator the email address associated with the
-service account credentials. (It's weird and generated.)
-
-"""
+"""Download Madpy survey responses as an excel file."""
 from os import path
 import gspread
+import pandas
 from oauth2client.service_account import ServiceAccountCredentials
 
 
@@ -33,4 +22,11 @@ try:
 except gspread.SpreadsheetNotFound:
     print('spreadsheet %s not found, is it shared with the creds email?' % title)
 
-open('madpy-survey-responses.csv', 'wb').write(ws.export())
+df = pandas.DataFrame(ws.get_all_records())
+
+# Deidentify data
+cols_to_remove = ['Email Address', 'Timestamp', 'Additional comments?']
+df.drop(cols_to_remove, axis=1, inplace=True)
+df = df.sample(len(df), random_state=1)
+
+df.to_excel('responses-deidentified.xlsx', index=False)
