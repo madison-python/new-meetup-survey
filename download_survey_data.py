@@ -29,4 +29,4 @@ cols_to_remove = ['Email Address', 'Timestamp', 'Additional comments?']
 df.drop(cols_to_remove, axis=1, inplace=True)
 df = df.sample(len(df), random_state=1)
 
-df.to_excel('responses-deidentified.xlsx', index=False)
+df.to_csv('responses-deidentified.csv', index=False)
