@@ -8,6 +8,7 @@ TIDIED_SURVEY_RESPONSES = 'responses-tidied.csv'
 
 @task
 def download(ctx, output_csv_name=None):
+    """Download the responses to the madpy new meetup google survey."""
     output_csv_name = output_csv_name or GOOGLE_SURVEY_RESPONSES
     creds = 'madpy-service-account-key.json'
 
@@ -17,6 +18,7 @@ def download(ctx, output_csv_name=None):
 
 @task
 def tidy(ctx, google_survey_responses=None, output_csv_name=None):
+    """Tidy the responses to the google survey."""
     google_survey_responses = google_survey_responses or GOOGLE_SURVEY_RESPONSES
     output_csv_name = output_csv_name or TIDIED_SURVEY_RESPONSES
 
