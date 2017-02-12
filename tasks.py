@@ -18,6 +18,13 @@ def download(ctx, output_csv_name=None, random_state=None):
 
 
 @task
+def info(ctx, output_html_name=None):
+    """Download the survey HTML to parse survey info."""
+    google_survey.get('madpy-survey-url.txt', 'madpy-survey.html')
+
+
+
+@task
 def tidy(ctx, google_survey_responses=None, output_csv_name=None):
     """Tidy the responses to the google survey."""
     google_survey_responses = google_survey_responses or GOOGLE_SURVEY_RESPONSES
