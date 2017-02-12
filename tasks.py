@@ -7,12 +7,13 @@ TIDIED_SURVEY_RESPONSES = 'responses-tidied.csv'
 
 
 @task
-def download(ctx, output_csv_name=None):
+def download(ctx, output_csv_name=None, random_state=None):
     """Download the responses to the madpy new meetup google survey."""
     output_csv_name = output_csv_name or GOOGLE_SURVEY_RESPONSES
     creds = 'madpy-service-account-key.json'
 
-    responses = google_survey.download('MadPy (Responses)', creds)
+    responses = google_survey.download('MadPy (Responses)', creds,
+                                       random_state=int(random_state))
     responses.to_csv(output_csv_name, index=False)
 
 

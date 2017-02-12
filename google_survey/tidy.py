@@ -42,9 +42,9 @@ def _melt_response_strs(response_strs):
     return response_df
 
 
-def split_response(response_str, ix):
+def split_response(response_str, ix=0):
     try:
-        responses = response_str.split(',')
+        responses = [response.strip() for response in response_str.split(',')]
     except AttributeError:
         responses = [response_str]
 

@@ -3,3 +3,4 @@ oauth2client==4.0.0
 pandas
 jupyter
 invoke==0.14.0
+pytest==3.0.6

@@ -1,5 +1,11 @@
+# python
 __pycache__/
-*.json
 .ipynb_checkpoints/
+.cache/
+
+# secrets
+*.json
+
+# prefs
 .DS_Store
 *.swp

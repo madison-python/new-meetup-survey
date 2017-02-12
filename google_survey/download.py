@@ -6,7 +6,8 @@ import pandas
 from oauth2client.service_account import ServiceAccountCredentials
 
 
-def download(sheet_name, service_account_creds, deidentify_responses=True):
+def download(sheet_name, service_account_creds, deidentify_responses=True,
+             random_state=None):
     """Download a Google Sheet containing the responses to a Google Survey."""
     credentials = ServiceAccountCredentials.from_json_keyfile_name(
         service_account_creds, scopes = 'https://spreadsheets.google.com/feeds',
@@ -22,7 +23,7 @@ def download(sheet_name, service_account_creds, deidentify_responses=True):
     df = pandas.DataFrame(ws.get_all_records())
 
     if deidentify_responses:
-        df = deidentify(df)
+        df = deidentify(df, random_state=random_state)
 
     return df
 
