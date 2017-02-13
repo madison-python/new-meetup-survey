@@ -1,0 +1,17 @@
+title,choices_json
+Email address *,[]
+How are you using Python?,"[""Software (engineering/developing)"", ""Science (scientific & numeric computing/data science)"", ""Education (teaching & undergraduate studies)"", ""Web (django/flask/other web development)"", ""SysAdmin/DevOps"", ""Other:""]"
+What kind(s) of events would you like to see at MadPy?,"[""Software (engineering/developing)"", ""Science (scientific & numeric computing/data science)"", ""Education (teaching & undergraduate studies)"", ""Web (django/flask/other web development)"", ""SysAdmin/DevOps"", ""Other:""]"
+What format(s) of events would you like to see at MadPy?,"[""Presentations"", ""Hack Nights"", ""Python Schooling"", ""Social"", ""Other:""]"
+At what skill level would you like to see events hosted?,"[""Introductory"", ""Intermediate"", ""Expert""]"
+What day(s) of the week work best for you?,"[""Monday"", ""Tuesday"", ""Wednesday"", ""Thursday"", ""Friday"", ""Saturday"", ""Sunday""]"
+What time(s) of day work best for you?,"[""Work hours (8am - 6pm)"", ""After work hours (6pm - 9pm)"", ""Night/bar time (9pm - 2am)""]"
+How frequently would you be interested in attending MadPy meetings?,"[""Never"", ""A few times a year"", ""Monthly"", ""Weekly""]"
+Where in town works best for you to attend the meetup?,"[""Far West"", ""Near West"", ""Downtown"", ""East""]"
+At what kind of facilities would you like to see the meetup?,"[""Libraries"", ""Bars"", ""Restaurants"", ""Offices"", ""Other:""]"
+What other tech meetups do you go to?,"[""MadJS (https://www.meetup.com/MadisonJS)"", ""Big Data Madison (https://www.meetup.com/BigDataMadison)"", ""Data Science Madison (http://www.meetup.com/Data-Science-Madison)"", ""Madison Area Software Devs (http://www.meetup.com/softwaredev-113)"", ""Madison DevOps (https://www.meetup.com/Madison-Devops)"", ""Madison Women in Tech (https://www.meetup.com/Madison-Women-in-Tech)"", ""Madison Java User Group (https://www.meetup.com/Madison-Java-User-Group-Meetup)"", ""Ionic Madison (https://www.meetup.com/Ionic-Madison)"", ""Containers Madison (https://www.meetup.com/Containers-Madison)"", ""Elastic Madison (https://www.meetup.com/Madison-Milwaukee-Elastic-Fantastics)"", ""Madison PHP (https://www.meetup.com/madisonphp)"", ""MadR (https://www.meetup.com/MadR-Madison-R-Programming-UseRs-Group)"", ""Madison Web Meetup (https://www.meetup.com/madisonwebmeetup)"", ""MadHackers (https://www.meetup.com/madhackers)"", ""Mad-Railers (https://www.meetup.com/Mad-Railers)"", ""Other:""]"
+How would you prefer to communicate with the group online?,"[""Email"", ""Slack channel"", ""IRC channel"", ""Other:""]"
+Is food okay at meetups?,"[""Yes"", ""No"", ""Other:""]"
+Is alcohol okay at meetups?,"[""Yes"", ""No"", ""Other:""]"
+What do you want to get out of a Madison Python meetup?,[]
+Additional comments?,[]
