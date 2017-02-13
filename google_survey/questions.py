@@ -34,7 +34,8 @@ def get_questions(survey_url):
 
     questions['choices'] = questions['div'].apply(extract_choices)
     questions['choices_json'] = questions.choices.apply(lambda x: json.dumps(x))
-    return questions[['title', 'choices_json']]
+    questions['id'] = ['q{}'.format(i) for i in range(len(questions))]
+    return questions[['id', 'title', 'choices_json']]
 
 
 def get_survey_html(survey_url, output=None):

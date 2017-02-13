@@ -35,18 +35,18 @@ def deidentify(df, random_state=None):
     return shuffled
 
 
-def tidy_responses(google_survey_responses):
+def tidy_responses(google_survey_responses, new_column_names=None):
     if not isinstance(google_survey_responses, pandas.DataFrame):
         google_survey_responses = pandas.read_csv(google_survey_responses)
 
     # Create map of question ids to question texts
-    questions = pandas.DataFrame(dict(question=google_survey_responses.columns))
-    question_ids = ['q{}'.format(i) for i in questions.index]
-    questions.insert(0, 'id', question_ids)
+    if new_column_names is None:
+        new_column_names = {name: 'q{}'.format(i)
+                            for i, name in enumerate(google_survey_responses.columns)}
 
     # Relabel response columns with question ids
     labeled_responses = google_survey_responses.copy()
-    labeled_responses.columns = questions.id
+    labeled_responses.rename(columns=new_column_names, inplace=True)
 
     # Assign a unique identifier for each survey taker
     person_ids = ['p{}'.format(i) for i in labeled_responses.index]

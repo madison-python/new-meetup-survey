@@ -20,7 +20,9 @@ def responses(ctx, output_csv_name=None, random_state=None,
                                             random_state=random_state)
     output_csv_name = output_csv_name or RESPONSES_CSV
     if not download_only:
-        responses = google_survey.tidy_responses(responses)
+        questions = google_survey.get_questions('madpy-survey-url.txt')
+        new_column_names = questions.set_index('title')['id'].to_dict()
+        responses = google_survey.tidy_responses(responses, new_column_names)
     responses.to_csv(output_csv_name, index=False)
 
 
