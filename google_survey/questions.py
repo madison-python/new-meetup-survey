@@ -5,20 +5,8 @@ import requests
 import pandas
 from bs4 import BeautifulSoup
 
-"""Classes in the survey html for extracting question data.
-
-These were obtained by first downloading the survey html and
-inspecting the results in a browser.
-
-    import google_survey
-    google_survey.get_survey_html('survey-url.txt', output='survey.html')
-"""
-CLS_QUESTION_LIST = 'freebirdFormviewerViewItemList'
-CLS_QUESTION = 'freebirdFormviewerViewItemsItemItem'
-CLS_QUESTION_TITLE = 'freebirdFormviewerViewItemsItemItemTitle'
-CLS_QUESTION_CHECKBOX = 'freebirdFormviewerViewItemsCheckboxLabel'
-CLS_QUESTION_RADIO = 'freebirdFormviewerViewItemsRadioChoice'
-QUESTION_TYPE_OPTION_CLASSES = [CLS_QUESTION_CHECKBOX, CLS_QUESTION_RADIO]
+from .survey_css import (CLS_QUESTION_LIST, CLS_QUESTION, CLS_QUESTION_TITLE,
+                         CLS_QUESTION_TYPES)
 
 
 def get_questions(survey_url):
@@ -61,7 +49,7 @@ def get_survey_html(survey_url, output=None):
 
 def extract_choices(div):
     choices = []
-    for CLS in QUESTION_TYPE_OPTION_CLASSES:
+    for CLS in CLS_QUESTION_TYPES:
         choice_divs = div.find_all(attrs={'class': CLS})
         if len(choice_divs) > 0:
             choices.extend([div.text for div in choice_divs])

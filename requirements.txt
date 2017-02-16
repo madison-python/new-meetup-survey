@@ -5,3 +5,4 @@ seaborn
 jupyter
 invoke==0.14.0
 pytest==3.0.6
+bs4==0.0.1
