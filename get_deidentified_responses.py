@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 """Download Madpy survey responses and deidentify them before saving to csv."""
 from os import path
-import gspread
 import pandas
+import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# Requirements for getting Google survey responses
+# Requirements for getting Google survey responses with gspread
 sheet_name = 'MadPy (Responses)'
 service_account_creds = 'madpy-service-account-key.json'
 
@@ -21,9 +21,9 @@ except gspread.SpreadsheetNotFound:
 
 df = pandas.DataFrame(ws.get_all_records())
 
-# Deidentify responses
+# Deidentify responses by removing columns and shuffling rows
 cols_to_remove = ['Email Address', 'Timestamp', 'Additional comments?']
 df.drop(cols_to_remove, axis=1, inplace=True)
 df = df.sample(len(df))
 
-df.to_csv('responses-deidentified.csv', index=False)
+df.to_csv('data/deidentified.csv', index=False)

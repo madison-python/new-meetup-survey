@@ -14,12 +14,16 @@ The next step is to create and download new service account credentials. Place t
 
 The final step is to allow this new service account to access the results of the Google Survey. Inside this json file should be a strange looking, machine generated email address. Go to the Google Sheet containing the results of the Google Survey and add as a collaborator the email address associated with the service account.
 
-## Using invoke to download survey questions and responses
+## Creating a virtualenv for this project
 
-    $ inv responses questions  # run the invoke tasks "responses" and "questions"
+    $ virtualenv --python python3 ~/.venvs/madpy
+    $ source ~/.venvs/madpy/bin/activate
+    (madpy)$ pip install -r requirements.txt
 
-Helpful invoke commands:
+## Downloading and deidentifying survey data
 
-    $ invoke --list  # see available tasks
-    $ inv -l         # same as above
-    $ inv -h [task]  # get help on particular task
+    (madpy)$ python get_deidentified_responses.py  # creates data/deidentified.csv
+
+## Analyze the data jupyter notebooks
+
+    (madpy)$ jupter notebook  # starts tornado server, open in browser
