@@ -1,4 +1,4 @@
-# new meetup survey
+# New Meetup Survey
 
 View and analyze the results of a Google Survey in python.
 
@@ -26,6 +26,14 @@ Virtual environments are great so you can play around with new python projects a
 
     (madpy)$ python get_deidentified_responses.py  # creates data/deidentified.csv
 
-## Analyze the data jupyter notebooks
+## Analyze the data in jupyter notebooks
 
-    (madpy)$ jupter notebook  # starts tornado server, open in browser
+To play with the jupyter notebooks, you need to start up the jupyter notebook server.
+
+    (madpy)$ jupyter notebook  # starts tornado server, opens in browser
+
+If you just want to see the notebooks, they render nicely on GitHub. Here are the links:
+
+1. [Tidying Google survey response data.](https://github.com/madison-python/new-meetup-survey/blob/master/1-getting-google-survey-responses.ipynb)
+2. [Scraping Google survey questions.](https://github.com/madison-python/new-meetup-survey/blob/master/2-parsing-google-survey-questions.ipynb)
+3. [Visualizing Google survey results.](https://github.com/madison-python/new-meetup-survey/blob/master/3-visualizing-survey-results.ipynb)
